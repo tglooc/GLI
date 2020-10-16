@@ -1,7 +1,7 @@
 
 // Implémenter ici les 4 classes du modèle.
 // N'oubliez pas l'héritage !
-
+Line.prototype = new Forme();
 function Drawing() {
     this.formes = new Array();
 
@@ -13,6 +13,7 @@ function Drawing() {
         return this.formes;
     }
 }
+
 
 function Forme(color, thickness, coorBeg, coorEnd) {
     this.color = color;
@@ -49,4 +50,4 @@ Rectangle.prototype = new Forme();
 function Line(color, thickness, coorBeg, coorEnd) {
     Forme.call(this, color, thickness, coorBeg, coorEnd);
 };
-Line.prototype = new Forme();
+

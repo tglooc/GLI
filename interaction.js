@@ -8,18 +8,22 @@ function DnD(canvas, interactor) {
 
   // Developper les 3 fonctions gérant les événements
   this.mouseDown = function (evt) {
+    console.log('mouseDown');
     this.posBeg = getMousePosition(canvas, evt);
-    this.posEnd = getMousePosition(canvas, evt);
     this.pressed = true;
     interactor.onInteractionStart(this);
   }.bind(this);
+
   this.mouseUp = function (evt) {
+    console.log('mouseUp');
     this.posEnd = getMousePosition(canvas, evt);
     this.pressed = false;
     interactor.onInteractionEnd(this);
   }.bind(this);
+  
   this.mouseMove = function (evt) {
     if (this.pressed) {
+      console.log('mouseMove');
       this.posEnd = getMousePosition(canvas, evt);
       interactor.onInteractionUpdate(this);
     }
